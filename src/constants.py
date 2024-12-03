@@ -30,12 +30,11 @@ PACKET_KEYS = [
     "bthci_evt.command_in_frame",
     "bthci_acl.chandle",
     "bthci_acl.length",
-    "bthci_acl.src.bd_addr",
     "bthci_cmd.device_name",
-    "bthci_acl.src.name",
     "bthci_acl.src.bd_addr",
+    "bthci_acl.src.name",
+    "bthci_acl.dst.bd_addr",
     "bthci_acl.dst.name",
-    "bthci_acl.dst.role",
     "btl2cap.cid",
     "btl2cap.length"
 ]
