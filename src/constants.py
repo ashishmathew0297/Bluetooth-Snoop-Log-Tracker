@@ -1,3 +1,7 @@
+PDF_TITLE = "Bluetooth Packet Capture Report"
+PDF_WIDTH = 210
+PDF_HEIGHT = 297
+
 HCI_LE_EVENT = {
     "0x01": "Command (HCI_CMD)",
     "0x02": "ACL (HCI_ACL)",

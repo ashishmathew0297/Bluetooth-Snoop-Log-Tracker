@@ -20,7 +20,6 @@ printf "%s%sPlease Wait%s\n" "${BOLD}" "${YELLOW}" "${NORMAL}"
 tshark -r ./bt_logfiles/btsnoop_hci_10032024_1156.log -T json \
 -e frame.number \
 -e frame.time_epoch \
--e frame.time_utc \
 -e frame.len \
 -e frame.protocols \
 -e hci_h4.type \
