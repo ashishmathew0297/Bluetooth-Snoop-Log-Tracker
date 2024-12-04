@@ -1,18 +1,18 @@
 HCI_LE_EVENT = {
-    '0x01': 'Bluetooth HCI Command (HCI_CMD)',
-    '0x02': 'Bluetooth HCI ACL (HCI_ACL)',
-    '0x04': 'Bluetooth HCI Event (HCI_EVT)'
+    "0x01": "Command (HCI_CMD)",
+    "0x02": "ACL (HCI_ACL)",
+    "0x04": "Event (HCI_EVT)"
 }
 
 EVENT_DIRECTION = {
-    '0x00':'Host > Controller',
-    '0x01': 'Controller > Host'
+    "0x00": "Host > Controller",
+    "0x01": "Controller > Host"
 }
 
 L2CAP_CID_VALUES = {
-    '0x0004': 'Attribute Protocol (ATT)',
-    '0x0005': 'LE Signaling Channel',
-    '0x0006': 'Security Manager Protocol (SMP)'
+    "0x0004": "Attribute Protocol (ATT)",
+    "0x0005": "LE Signaling Channel",
+    "0x0006": "Security Manager Protocol (SMP)"
 }
 
 PACKET_KEYS = [
@@ -38,6 +38,23 @@ PACKET_KEYS = [
     "btl2cap.cid",
     "btl2cap.length"
 ]
+
+PROTOCOL_TYPES = {
+    "bluetooth:hci_h4:bthci_cmd": "HCI Command",
+    "bluetooth:hci_h4:bthci_evt": "HCI Command",
+    "bluetooth:hci_h4:bthci_evt:btcommon": "HCI Event (btcommon)",
+    "bluetooth:hci_h4:bthci_cmd:bthci_vendor.broadcom": "HCI Command (Vendor Specific)",
+    "bluetooth:hci_h4:bthci_evt:bthci_vendor.broadcom": "HCI Event (Vendor Specific)",
+    "bluetooth:hci_h4:bthci_cmd:btcommon": "HCI Command (btcommon)",
+    "bluetooth:hci_h4:bthci_acl:btl2cap:btatt": "ACL - Attribute Protocol",
+    "bluetooth:hci_h4:bthci_acl:btl2cap": "ACL - L2CAP Protocol",
+    "bluetooth:hci_h4:bthci_acl:btl2cap:btsdp": "ACL - Service Discovery Protocol",
+    "bluetooth:hci_h4:bthci_acl:btl2cap:btavdtp": "ACL - Audio/Video Distribution Transport Protocol",
+    "bluetooth:hci_h4:bthci_acl:btl2cap:btrfcomm": "ACL - Radio Frequency Communication",
+    "bluetooth:hci_h4:bthci_acl:btl2cap:btrfcomm:bthfp": "ACL - RFComm Hands Free Profile",
+    "bluetooth:hci_h4:bthci_acl:btl2cap:btrfcomm:data": "ACL - RFComm Data Transfer",
+    "bluetooth:hci_h4:bthci_acl:btl2cap:btavctp:btavrcp": "ACL - Audio/Video Remote Control Profile"
+}
 
 # l2cap_commands = {
 #     '0x01':'Command Reject',
