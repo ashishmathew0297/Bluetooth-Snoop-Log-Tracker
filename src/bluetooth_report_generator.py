@@ -368,6 +368,7 @@ def main():
         'MAC Address': np.unique(np.concatenate((df_data['Source Device MAC'].dropna().unique(), df_data['Destination Device MAC'].dropna().unique())))
     })
     mac_vendor_info = generate_mac_info_dataframe(mac_addresses['MAC Address'].tolist())
+    mac_addresses = mac_addresses[mac_addresses['MAC Address'] != '00:00:00:00:00:00']
 
     host_mac_address = df_data[df_data['Direction'] == 'Host > Controller']['Source Device MAC'].dropna().unique()[0]
     host_device_name = df_data[df_data['Source Device MAC'] == host_mac_address]['Source Device Name'].dropna().unique()[0]
