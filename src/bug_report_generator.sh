@@ -11,6 +11,9 @@ zip_filename="bugreports_${timestamp}"
 
 printf "%s%sPlease Wait%s\n" "${BOLD}" "${YELLOW}" "${NORMAL}"
 
+mkdir temp
+mkdir bt_logfiles
+
 adb bugreport ${zip_filename}
 mv "${zip_filename}".zip ./temp/"${zip_filename}".zip
 yes | unzip -j bugreports FS/data/misc/bluetooth/logs/btsnoop_hci.log -d bt_logfiles
@@ -41,7 +44,8 @@ tshark -r ./bt_logfiles/${new_filename} -T json \
 
 python bluetooth_report_generator.py "./temp/pcap.json"
 
-rm ./temp/"${zip_filename}".zip
-rm ./temp/pcap.json
+rm -r ./temp
+rm -r ./bt_logfiles
+
 
 printf "%s%sCompleted:%s The output can be found in ./outputs\n" "${BOLD}" "${GREEN}" "${NORMAL}"
