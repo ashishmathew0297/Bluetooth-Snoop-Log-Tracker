@@ -5,19 +5,17 @@ NORMAL=$(tput sgr0)
 YELLOW=$(tput setaf 3)
 BOLD=$(tput bold)
 
-# timestamp=$(date +"%d%m%Y_%H%M")
-# new_filename="btsnoop_hci_${timestamp}.log"
-# zip_filename="bugreports_${timestamp}"
+timestamp=$(date +"%d%m%Y_%H%M")
+new_filename="btsnoop_hci_${timestamp}.log"
+zip_filename="bugreports_${timestamp}"
 
 printf "%s%sPlease Wait%s\n" "${BOLD}" "${YELLOW}" "${NORMAL}"
 
-# adb bugreport $(zip_filename)
-# yes | unzip -j bugreports FS/data/misc/bluetooth/logs/btsnoop_hci.log -d bt_logfiles
-# mv bt_logfiles/btsnoop_hci.log bt_logfiles/"${new_filename}"
+adb bugreport ./temp/$(zip_filename)
+yes | unzip -j bugreports FS/data/misc/bluetooth/logs/btsnoop_hci.log -d bt_logfiles
+mv bt_logfiles/btsnoop_hci.log bt_logfiles/"${new_filename}"
 
-
-
-tshark -r ./bt_logfiles/btsnoop_hci_10032024_1156.log -T json \
+tshark -r ./bt_logfiles/${new_filename} -T json \
 -e frame.number \
 -e frame.time_epoch \
 -e frame.len \
@@ -38,8 +36,8 @@ tshark -r ./bt_logfiles/btsnoop_hci_10032024_1156.log -T json \
 -e bthci_acl.dst.bd_addr \
 -e bthci_acl.dst.name \
 -e btl2cap.cid \
--e btl2cap.length > ./output1.json
+-e btl2cap.length > ./temp/pcap.json
 
-printf "%s%sCompleted%s\n" "${BOLD}" "${GREEN}" "${NORMAL}"
+rm ./temp/${zip_filename}
 
-# rm bugreports.zip
+printf "%s%sCompleted:%s The output can be found in ./outputs\n" "${BOLD}" "${GREEN}" "${NORMAL}"
