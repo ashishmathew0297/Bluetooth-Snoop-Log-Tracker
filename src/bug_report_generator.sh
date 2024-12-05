@@ -5,21 +5,24 @@ NORMAL=$(tput sgr0)
 YELLOW=$(tput setaf 3)
 BOLD=$(tput bold)
 
-timestamp=$(date +"%d%m%Y_%H%M")
-new_filename="btsnoop_hci_${timestamp}.log"
-zip_filename="bugreports_${timestamp}"
+# timestamp=$(date +"%d%m%Y_%H%M")
+# new_filename="btsnoop_hci_${timestamp}.log"
+# zip_filename="bugreports_${timestamp}"
 
 printf "%s%sPlease Wait%s\n" "${BOLD}" "${YELLOW}" "${NORMAL}"
 
 mkdir temp
 mkdir bt_logfiles
 
-adb bugreport ${zip_filename}
-mv "${zip_filename}".zip ./temp/"${zip_filename}".zip
-yes | unzip -j bugreports FS/data/misc/bluetooth/logs/btsnoop_hci.log -d bt_logfiles
-mv bt_logfiles/btsnoop_hci.log bt_logfiles/"${new_filename}"
+# adb bugreport ${zip_filename}
+# mv "${zip_filename}".zip ./temp/"${zip_filename}".zip
+# mv bt_logfiles/btsnoop_hci.log bt_logfiles/"${new_filename}"
 
-tshark -r ./bt_logfiles/${new_filename} -T json \
+adb bugreport bugreports
+mv bugreports.zip ./temp/bugreports.zip
+yes | unzip -j bugreports.zip FS/data/misc/bluetooth/logs/btsnoop_hci.log -d bt_logfiles
+
+tshark -r ./bt_logfiles/btsnoop_hci.log -T json \
 -e frame.number \
 -e frame.time_epoch \
 -e frame.len \
