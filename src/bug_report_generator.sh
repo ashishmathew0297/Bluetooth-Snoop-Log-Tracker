@@ -11,7 +11,7 @@ zip_filename="bugreports_${timestamp}"
 
 printf "%s%sPlease Wait%s\n" "${BOLD}" "${YELLOW}" "${NORMAL}"
 
-adb bugreport $(zip_filename)
+adb bugreport "$(zip_filename)"
 mv "${zip_filename}".zip ./temp/"${zip_filename}".zip
 yes | unzip -j bugreports FS/data/misc/bluetooth/logs/btsnoop_hci.log -d bt_logfiles
 mv bt_logfiles/btsnoop_hci.log bt_logfiles/"${new_filename}"
