@@ -11,9 +11,7 @@ from fpdf.enums import XPos, YPos
 from fpdf import FPDF
 import pandas as pd
 import numpy as np
-from pprint import pprint
 from decimal import Decimal
-import dataframe_image as dfi
 from datetime import datetime
 
 import plotly.express as px
