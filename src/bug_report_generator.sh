@@ -20,7 +20,7 @@ mkdir bt_logfiles
 
 adb bugreport bugreports
 mv bugreports.zip ./temp/bugreports.zip
-yes | unzip -j bugreports.zip FS/data/misc/bluetooth/logs/btsnoop_hci.log -d bt_logfiles
+yes | unzip -j ./temp/bugreports.zip FS/data/misc/bluetooth/logs/btsnoop_hci.log -d bt_logfiles
 
 tshark -r ./bt_logfiles/btsnoop_hci.log -T json \
 -e frame.number \
@@ -47,8 +47,8 @@ tshark -r ./bt_logfiles/btsnoop_hci.log -T json \
 
 python bluetooth_report_generator.py "./temp/pcap.json"
 
-rm -r ./temp
-rm -r ./bt_logfiles
+# rm -r ./temp
+# rm -r ./bt_logfiles
 
 
 printf "%s%sCompleted:%s The output can be found in ./outputs\n" "${BOLD}" "${GREEN}" "${NORMAL}"
