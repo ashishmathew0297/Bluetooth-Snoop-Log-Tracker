@@ -45,7 +45,7 @@ tshark -r ./bt_logfiles/btsnoop_hci.log -T json \
 -e btl2cap.cid \
 -e btl2cap.length > ./temp/pcap.json
 
-python bluetooth_report_generator.py "./temp/pcap.json"
+python bluetooth_report_generator.py ./temp/pcap.json
 
 # rm -r ./temp
 # rm -r ./bt_logfiles

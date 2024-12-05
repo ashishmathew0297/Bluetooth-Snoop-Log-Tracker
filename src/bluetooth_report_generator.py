@@ -37,6 +37,7 @@ def format_packet_data(data):
         packet["Timestamp"] = datetime.fromtimestamp(int(Decimal(packet["frame.time_epoch"][0]))) if "frame.time_epoch" in packet else None
         packet["Packet Length"] = packet["frame.len"][0] if "frame.len" in packet else None
         packet["LE Protocol"] = PROTOCOL_TYPES[packet["frame.protocols"][0]] if "frame.protocols" in packet else None
+        # packet["LE Protocol"] = PROTOCOL_TYPES[packet["frame.protocols"][0]] if "frame.protocols" in packet and packet["frame.protocols"][0] in PROTOCOL_TYPES else (packet["frame.protocols"][0] if "frame.protocols" in packet else None)
         packet["LE Event Code"] = packet["hci_h4.type"][0] if "hci_h4.type" in packet else None
         packet["LE Event Type"] = HCI_LE_EVENT[packet["hci_h4.type"][0]] if "hci_h4.type" in packet else None
         packet["Direction"] = EVENT_DIRECTION[packet["hci_h4.direction"][0]] if "hci_h4.direction" in packet else None

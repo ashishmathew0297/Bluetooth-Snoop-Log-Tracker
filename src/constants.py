@@ -57,7 +57,8 @@ PROTOCOL_TYPES = {
     "bluetooth:hci_h4:bthci_acl:btl2cap:btrfcomm": "ACL - Radio Frequency Communication",
     "bluetooth:hci_h4:bthci_acl:btl2cap:btrfcomm:bthfp": "ACL - RFComm Hands Free Profile",
     "bluetooth:hci_h4:bthci_acl:btl2cap:btrfcomm:data": "ACL - RFComm Data Transfer",
-    "bluetooth:hci_h4:bthci_acl:btl2cap:btavctp:btavrcp": "ACL - Audio/Video Remote Control Profile"
+    "bluetooth:hci_h4:bthci_acl:btl2cap:btavctp:btavrcp": "ACL - Audio/Video Remote Control Profile",
+    "bluetooth:hci_h4:bthci_acl:btl2cap:btavdtp:bta2dp:rtp:ldac": "ACL - Lossless Digital Audio Codec"
 }
 
 # l2cap_commands = {
