@@ -38,6 +38,9 @@ tshark -r ./bt_logfiles/${new_filename} -T json \
 -e btl2cap.cid \
 -e btl2cap.length > ./temp/pcap.json
 
-rm ./temp/${zip_filename}
+python bluetooth_report_generator.py "./temp/pcap.json"
+
+rm ./temp/${zip_filename}.zip
+rm ./temp/pcap.json
 
 printf "%s%sCompleted:%s The output can be found in ./outputs\n" "${BOLD}" "${GREEN}" "${NORMAL}"

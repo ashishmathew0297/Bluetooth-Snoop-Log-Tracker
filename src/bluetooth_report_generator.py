@@ -26,8 +26,8 @@ pd.set_option('display.max_colwidth', None)
 
 filepath = sys.argv[1]
 
-# with open(filepath, 'r') as file:
-with open('./output1.json', 'r') as file:
+# with open('./output1.json', 'r') as file:
+with open(filepath, 'r') as file:
     data = [x["_source"]["layers"] for x in json.load(file)]
 
 
