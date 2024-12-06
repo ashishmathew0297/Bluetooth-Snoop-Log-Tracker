@@ -11,46 +11,60 @@ The devices used in this project are:
 
 The WSL system is only used to develop the report generating application in a linux-like environment. Adb commands do not easily work under WSL as it doesn't support USB reading 
 
-## Linux Packages Used
+## Packages installation
 
 - `unzip`: This package is used to decompress zip files and may not always be present in every linux installation. It can be installed with the following command.
 
-```bash
-sudo apt install unzip
-```
-
 - `adb`: Android Debug Bridge (adb) is a tool used by developers to iterface with an Android device and perform a variety of functions such as installing apps, debugging issues and, as per our use case, generate logs from the device all through a Unix shell. The following command can be used to install adb in Linux.
-
-```bash
-sudo apt install adb
-```
 
 - `tshark`: A CLI took which works as a network protocol analyzer
 
 ```bash
-sudo apt install tshark
+sudo apt install unzip adb tshark
 ```
 
-## Installing the python package requirements
+## Setting up an Environment and Installing the Python Requirements
 
-The python packages for this project can be installed through the `requirements.txt` file as follows.
+The code can be run in an anaconda virtual environment which can be set up and activated with the following commands
+
+```bash
+conda create --name <env_name>
+conda activate <env_name>
+```
+
+Once this is done, install pip into the current environment
+
+```bash
+conda install pip
+```
+
+Now you will be able to install the packages for this project from the `requirements.txt` file as follows.
 
 ```bash
 pip install -r /path/to/requirements.txt
 ```
-## Running the code
 
-The code requires a python virtual environment which can be set up with the following command
+You can also do the same in a single line through the following
 
 ```bash
-python/python3 -m venv <env_name>
-source <env_name>/bin/activate
+conda create --name foo_env --file requirements.txt
 ```
 
-The requirements.txt file has a lot in it, but the main packages of importance here are
-- jupyterlab
-- notebook
-- btsnoop (by Travis W Peters): The installation for this file was taken directly from git. It can be installed with the command below
-```bash
-pip install git+https://github.com/traviswpeters/btsnoop.git#egg=btsnoop
-```
+## Running the code and generating the reports
+
+Once the packages have been installed, environment set up and activated you can now run the code.
+
+### Enabling Developer Options on your android phone
+
+The first step to take is ensuring that your android phone has its USB debugging feature enabled. This is only available if developer mode is enabled, the instructions for which varies for different android devices and versions. The general process is as follows:
+
+- Go through your phone settings to find the build number. The general path to finding it is `Settings > About Phone > Build Number`.
+- Tapping the build number a few times will enable the developer options, which This is what allows for generating the bluetooth packet capture report files.
+- Go back to the Settings homepage and scroll down to find the Developer Options and enable it.
+- In the Developer Options screen, look for the `USB Debugging` option and enable it.
+
+### Setting up your phone with ADB
+
+Android Debug Bridge (ADB) is what we use to generate the logs from our device. It finds many other use cases in developing android applications, but in our case we are being minimally invasive, with the main goal of extracting the logs from the device.
+
+
