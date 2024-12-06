@@ -152,7 +152,16 @@ def get_mac_info(mac_address):
 def generate_mac_info_dataframe(unique_mac_list):
     unique_mac_info_list = []
     for mac in unique_mac_list:
-        info = get_mac_info(mac)
+        if mac != '00:00:00:00:00:00':
+            info = get_mac_info(mac)
+        else:
+            info = {
+                "company":"Unknown",
+                "addressL1":"",
+                "addressL2":"",
+                "addressL3":"",
+                "country":""
+            }
         info['mac_address'] = mac
         if info:
             unique_mac_info_list.append(info)
@@ -367,14 +376,13 @@ def main():
     mac_addresses = pd.DataFrame({
         'MAC Address': np.unique(np.concatenate((df_data['Source Device MAC'].dropna().unique(), df_data['Destination Device MAC'].dropna().unique())))
     })
-    mac_addresses.loc[mac_addresses['MAC Address'] == '00:00:00:00:00:00', 'Device Name'] = 'Unknown Device'
-    mac_addresses.loc[mac_addresses['MAC Address'] == '00:00:00:00:00:00', ['addressL1', 'addressL2', 'addressL3', 'country']] = ''
     mac_vendor_info = generate_mac_info_dataframe(mac_addresses['MAC Address'].tolist())
 
     host_mac_address = df_acl_le_events[df_acl_le_events['Direction'] == 'Host > Controller']['Source Device MAC'].dropna().unique()[0]
     host_device_name = str(df_acl_le_events[df_acl_le_events['Source Device MAC'] == host_mac_address]['Source Device Name'].dropna().unique()[0]) + ' (Host)'
     host_device_company = mac_vendor_info[mac_vendor_info['mac_address'] == host_mac_address]['company'].values[0]
     controller_devices = df_acl_le_events[df_acl_le_events['Direction'] == 'Controller > Host'][['Source Device MAC', 'Source Device Name']].dropna().drop_duplicates()
+    controller_devices['Source Device Name'] = controller_devices.apply(lambda row: 'Unknown Device (Controller)' if row['Source Device MAC'] == '00:00:00:00:00:00' else row['Source Device Name'], axis=1)
 
     unique_hci_commands = df_hci_cmd['HCI Command'].unique()
     unique_hci_events = df_hci_event['HCI Event'].unique()
