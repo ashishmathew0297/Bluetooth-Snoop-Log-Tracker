@@ -367,13 +367,14 @@ def main():
     mac_addresses = pd.DataFrame({
         'MAC Address': np.unique(np.concatenate((df_data['Source Device MAC'].dropna().unique(), df_data['Destination Device MAC'].dropna().unique())))
     })
-    mac_vendor_info = generate_mac_info_dataframe(mac_addresses['MAC Address'].tolist())
     mac_addresses = mac_addresses[mac_addresses['MAC Address'] != '00:00:00:00:00:00']
+    mac_vendor_info = generate_mac_info_dataframe(mac_addresses['MAC Address'].tolist())
+    # mac_addresses = mac_addresses[mac_addresses['MAC Address'] != '00:00:00:00:00:00']
 
-    host_mac_address = df_data[df_data['Direction'] == 'Host > Controller']['Source Device MAC'].dropna().unique()[0]
-    host_device_name = df_data[df_data['Source Device MAC'] == host_mac_address]['Source Device Name'].dropna().unique()[0]
+    host_mac_address = df_acl_le_events[df_acl_le_events['Direction'] == 'Host > Controller' & df_acl_le_events['Mac Address'] != '00:00:00:00:00:00']['Source Device MAC'].dropna().unique()[0]
+    host_device_name = df_acl_le_events[df_acl_le_events['Source Device MAC'] == host_mac_address]['Source Device Name'].dropna().unique()[0]
     host_device_company = mac_vendor_info[mac_vendor_info['mac_address'] == host_mac_address]['company'].values[0]
-    controller_devices = df_data[df_data['Direction'] == 'Controller > Host'][['Source Device MAC', 'Source Device Name']].dropna().drop_duplicates()
+    controller_devices = df_acl_le_events[df_acl_le_events['Direction'] == 'Controller > Host'][['Source Device MAC', 'Source Device Name']].dropna().drop_duplicates()
 
     unique_hci_commands = df_hci_cmd['HCI Command'].unique()
     unique_hci_events = df_hci_event['HCI Event'].unique()
