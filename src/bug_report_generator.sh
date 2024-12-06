@@ -47,4 +47,6 @@ tshark -r ./bt_logfiles/btsnoop_hci.log -T json \
 
 python bluetooth_report_generator.py ./temp/pcap.json
 
+find ./temp -type f ! -name '.gitkeep' -delete
+
 printf "%s%sCompleted:%s The output can be found in ./outputs\n" "${BOLD}" "${GREEN}" "${NORMAL}"
