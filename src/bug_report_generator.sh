@@ -47,8 +47,4 @@ tshark -r ./bt_logfiles/btsnoop_hci.log -T json \
 
 python bluetooth_report_generator.py ./temp/pcap.json
 
-# rm -r ./temp
-# rm -r ./bt_logfiles
-
-
 printf "%s%sCompleted:%s The output can be found in ./outputs\n" "${BOLD}" "${GREEN}" "${NORMAL}"
