@@ -403,9 +403,8 @@ def main():
     mac_vendor_info.rename(columns={'Source Device Name': 'Device Name'}, inplace=True)
 
     host_device_info = mac_vendor_info[mac_vendor_info['mac_address'] == host_mac_address]
-    controller_device_info = mac_vendor_info[mac_vendor_info['mac_address'] != host_mac_address]
-
-    
+    controller_device_info = mac_vendor_info[mac_vendor_info['mac_address'].isin(controller_devices['Source Device MAC'])]
+    # controller_device_info = mac_vendor_info[mac_vendor_info['mac_address'] != host_mac_address]
 
     generate_device_piecharts(df_sources, 'Source Devices', 'Distribution of Source Devices', 'source_devices_distribution.png')
     generate_device_piecharts(df_destinations, 'Destination Devices', 'Distribution of Destination Devices', 'destination_devices_distribution.png')
