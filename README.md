@@ -38,13 +38,13 @@ conda install pip
 Now you will be able to install the packages for this project from the `requirements.txt` file as follows.
 
 ```bash
-pip install -r /path/to/requirements.txt
+pip install -r requirements_pip.txt
 ```
 
 You can also do the same in a single line through the following
 
 ```bash
-conda create --name <env_name> --file path/to/requirements.txt
+conda create --name <env_name> --file requirements_conda.txt
 ```
 
 Finally, the bash script that will be running our code will need execution permissions. In a terminal, move into the src folder of the project and run the below line:
