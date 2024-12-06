@@ -50,7 +50,7 @@ conda create --name <env_name> --file requirements_conda.txt
 Finally, the bash script that will be running our code will need execution permissions. In a terminal, move into the src folder of the project and run the below line:
 
 ```bash
-chmod +e run_scripts.sh
+chmod +x run_scripts.sh
 ```
 
 ## Running the code and generating the reports
