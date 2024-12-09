@@ -98,3 +98,9 @@ The above process will run the shell script that does the following:
 
 
 The output PDF report will be generated in the `src/outputs` folder in the `report_YYYYMMDD_HHMM.pdf` format.
+
+## Troubleshooting and Known Bugs
+
+A known issue with this tool is the generated MAC addresses showing up as "00:00:00:00:00:00". This can be attributed to the type of device being used and the security protocols it has in place, and is unavoidable.
+
+However, in some cases, the logs show up with all Host and Controller MAC addresses as "00:00:00:00:00:00". The possible cause for this is the Android version update from Android 14 to 15, but has not been confirmed.
