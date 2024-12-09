@@ -1,4 +1,4 @@
-# Bluetooth Log Report Generator
+# Bluetooth Snoop Log Tracker and Report Generator
 
 This project aims to capture and study data packets from bluetooth low energy (BLE) devices connecting to an android phone. Here, we will be identifying the types of devices connecting to the phone, the types of communication protocols they used, and the timeframe over which they connected. The output here will be a report/dashboard of all the information on the devices that have connected to the phone within the timeframe of which the reports have been generated.
 
