@@ -86,7 +86,7 @@ Once the environment has been set up and the device has the required developer o
 The above process will run the shell script that does the following:
 
 - Using ADB, the tool will extract the latest bug reports from the phone in a zip file.
-- It will then extracts the Bluetooth logs from the zip file.
+- It will then extract the Bluetooth logs from the zip file.
 - Using tshark, the tool filters relevant information from the logs.
 - It then executes the `bluetooth_report_generator.py` python script to generate the reports from the file.
 - Outputs of the reports will be generated in the `src/outputs` folder.
