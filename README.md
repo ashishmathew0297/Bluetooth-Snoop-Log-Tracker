@@ -5,9 +5,9 @@ This project aims to capture and study data packets from bluetooth low energy (B
 ## Hardware Requirements
 
 The hardware needed for this project are:
-- An Android phone, ideally running Android 14 as this code was developed and confirmed to work with a device running this version
+- An Android phone, ideally running Android 14 as this code was developed and confirmed to work with a device running this version.
 - A laptop running a Debian-based Linux distribution. Ubuntu has the best support.
-- A USB connector that allows data transfer 
+- A USB connector that allows data transfer.
 
 ## Software Requirements
 
@@ -17,7 +17,7 @@ The following packages are required for the program to work as expected.
 
 - `adb`: Android Debug Bridge (adb) is a tool used by developers to iterface with an Android device and perform a variety of functions such as installing apps, debugging issues and, as per our use case, generate logs from the device all through a Unix shell. The following command can be used to install adb in Linux.
 
-- `tshark`: A CLI took which works as a network protocol analyzer
+- `tshark`: A CLI took which works as a network protocol analyzer.
 
 ```bash
 sudo apt install unzip adb tshark
@@ -27,14 +27,14 @@ The report generation part of this project is in Python 3.12.7.
 
 ## Setting up an Environment and Installing the Python Requirements
 
-The code can be run in an anaconda virtual environment which can be set up and activated with the following commands
+The code can be run in an anaconda virtual environment which can be set up and activated with the following commands.
 
 ```bash
 conda create --name <env_name>
 conda activate <env_name>
 ```
 
-Once this is done, install pip into the current environment
+Once this is done, install pip into the current environment.
 
 ```bash
 conda install pip
@@ -46,7 +46,7 @@ Now you will be able to install the packages for this project from the `requirem
 pip install -r requirements_pip.txt
 ```
 
-You can also do the same in a single line through the following
+You can also do the same in a single line through the following command:
 
 ```bash
 conda create --name <env_name> --file requirements_conda.txt
@@ -81,9 +81,9 @@ Once the environment has been set up and the device has the required developer o
   ./run_scripts.sh
   ```
 6. If the popup step 2 has not occurred yet, it should show up now on your mobile device. Select "yes".
-- Wait for the code to execute. This can take upto a minute
+- Wait for the code to execute. This can take upto a minute.
 
-The above process will run the shell script that does the following
+The above process will run the shell script that does the following:
 
 - Using ADB, the tool will extract the latest bug reports from the phone in a zip file.
 - It will then extracts the Bluetooth logs from the zip file.
