@@ -9,7 +9,7 @@ This project aims to capture and study data packets from bluetooth low energy (B
 ## Hardware Requirements
 
 The hardware needed for this project are:
-- An Android phone, ideally running Android 14 as this code was developed and confirmed to work with a device running this version.
+- An Android phone, ideally running Android 14.
 - A laptop running a Debian-based Linux distribution. Ubuntu has the best support.
 - A USB connector that allows data transfer.
 
