@@ -4,6 +4,8 @@ This project aims to capture and study data packets from bluetooth low energy (B
 
 **Important Note:** The code for this tool was made to work on Android phones running Android version 14 and below. Later versions of Android might not work with this tool.
 
+# Installation and Usage Guide
+
 ## Hardware Requirements
 
 The hardware needed for this project are:
