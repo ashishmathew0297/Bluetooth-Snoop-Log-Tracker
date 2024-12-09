@@ -75,7 +75,7 @@ Once the environment has been set up and the device has the required developer o
 1. Connect your Android device to the laptop on which the repository and environment is set up.
 2. Check your mobile device. A prompt will show up asking if you would like to allow bluetooth debugging with your laptop. Click "yes".
 3. If the prompt in the previous step doesn't show up, try disconnecting and reconnecting the device. Sometimes this prompt might appear even later (Refer to step 6).
-4. Open a shell terminal and navigate to the src folder in the project repository.
+4. Open a shell terminal and navigate to the `src` folder in the project repository.
 5. Run the `run_scripts.sh` file with the following command.
   ```bash
   ./run_scripts.sh
