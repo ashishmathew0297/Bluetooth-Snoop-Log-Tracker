@@ -1,6 +1,6 @@
 # Bluetooth Snoop Log Tracker and Report Generation Tool
 
-This project aims to capture and study data packets from bluetooth low energy (BLE) devices connecting to an Android smartphone. This tool will identify the types of devices connecting to the smartphone, the types of communication protocols used, the identity of the devices connected and more. The output is a PDF report of all the packet information within the timeframe of to packet capture log obtained from the smartphone.
+This project aims to capture and study data packets from bluetooth low energy (BLE) devices connecting to an Android smartphone. This tool will identify the types of devices connecting to the smartphone, the types of communication protocols used, the MAC addresses of the devices connected, and more. The output is a PDF report of all the packet information within the timeframe of to packet capture log obtained from the smartphone.
 
 **Important Note:** The code for this tool was made to work on smartphones running Android version 14 and below. Later versions of Android might not work with this tool.
 
