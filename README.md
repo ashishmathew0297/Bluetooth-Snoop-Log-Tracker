@@ -89,4 +89,6 @@ The above process will run the shell script that does the following:
 - It will then extract the Bluetooth logs from the zip file.
 - Using tshark, the tool filters relevant information from the logs.
 - It then executes the `bluetooth_report_generator.py` python script to generate the reports from the file.
-- Outputs of the reports will be generated in the `src/outputs` folder.
+
+
+The output PDF report will be generated in the `src/outputs` folder in the `report_YYYYMMDD_HHMM.pdf` format.
