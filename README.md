@@ -27,6 +27,8 @@ The following packages are required for the program to work as expected.
 sudo apt install unzip adb tshark
 ```
 
+While installing `tshark`, it may show a pop-up asking you whether non-root users should be allowed to capture packets and study them. Select "yes" as this is needed for this tool to work.
+
 The report generation part of this project is in Python 3.12.7.
 
 ## Setting up an Environment and Installing the Python Requirements
