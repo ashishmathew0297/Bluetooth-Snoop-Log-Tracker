@@ -81,7 +81,7 @@ Once the environment has been set up and the device has the required developer o
   ./run_scripts.sh
   ```
 6. If the popup step 2 has not occurred yet, it should show up now on your mobile device. Select "yes".
-- Wait for the code to execute. This can take upto a minute.
+7. Wait for the code to execute. This can take upto a minute.
 
 The above process will run the shell script that does the following:
 
